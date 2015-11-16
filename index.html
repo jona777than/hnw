@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>H2/N2/W2</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha256-MfvZlkHCEqatNoGiOXveE8FIwMzZg4W85qfrfIFBfYc= sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+    </head>
+    <body>
+        <div id="main" class="container">
+        <h1>HaveTo-NeedTo-WantTo</h1>
+        <span class="pull-right">
+        It's @{{ currentTime }}</span>
+        <p>Do what matters.</p>
+        <div class="row">
+            <div class="col-xs-4 bg-danger">
+                <input class="form-inline" placeholder="Today, I have to..." type="text" v-model="newHaveTo">
+                <input placeholder="It'll take..." type="text"  v-model="timeItTakes" number> min
+                <a href="#" class="pull-right" @click="addH2">add</a>
+                <hr>
+                <ul class="list-group">
+                    <li class="list-group-item" v-for="h2 in have2s">@{{ h2.name }} - takes @{{ h2.time }} min</li>
+                </ul>
+            </div>
+            <div class="col-xs-4 bg-warning">
+                <input placeholder="Today, I need to..." type="text" v-model="newNeedTo">
+                <input placeholder="It'll take..." type="text" v-model="timeItTakes" number> min
+                <a href="#" class="pull-right" v-on:click="addN2">add</a>
+                <hr>
+                <ul class="list-group">
+                    <li class="list-group-item" v-for="n2 in need2s">@{{ n2.name }} - takes @{{ n2.time }} min</li>
+                </ul>
+            </div>
+            <div class="col-xs-4 bg-success">
+                <input placeholder="Today, I want to..." type="text" v-model="newWantTo">
+                <input placeholder="It'll take..." type="text" v-model="timeItTakes" number> min
+                <a href="#" class="pull-right" v-on:click="addW2">add</a>
+                <hr>
+                <ul class="list-group">
+                    <li class="list-group-item" v-for="w2 in want2s">@{{ w2.name }} - takes @{{ w2.time }} min</li>
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+        </div>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.8/vue.js"></script>
+        <script type="text/javascript" src="js/app.js"></script>
+    </body>
+</html>
